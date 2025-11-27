@@ -4,16 +4,16 @@ from game import Game
 
 
 class Main:
-
     def __init__(self, sizex, sizey, title):
-
         pygame.init()
-        pygame.mixer.init()
-        pygame.mixer.music.load("assets/Sons/musica.mp3")
-        pygame.mixer.music.play(-1)
 
-        self.window = pygame.display.set_mode([sizex, sizey])
-        self.title = pygame.display.set_caption(title)
+        # Sem áudio (para evitar erro de dispositivo)
+        # pygame.mixer.init()
+        # pygame.mixer.music.load("assets/Sons/musica.mp3")
+        # pygame.mixer.music.play(-1)
+
+        self.window = pygame.display.set_mode((sizex, sizey))
+        pygame.display.set_caption(title)
 
         self.sizex = sizex
         self.sizey = sizey
@@ -30,7 +30,7 @@ class Main:
         if not self.menu.change_scene:
             self.menu.draw(self.window)
         elif not self.game.change_scene:
-            # movimento contínuo do aluno (player) com setas
+            # movimento contínuo do aluno
             teclas = pygame.key.get_pressed()
             self.game.player.mover(teclas, self.sizex)
 
@@ -41,7 +41,7 @@ class Main:
         elif self.game.scene_type == "win" and not self.winner.change_scene:
             self.winner.draw(self.window)
         else:
-            # reseta o jogo
+            # reset geral e volta para o menu
             self.menu.change_scene = False
             self.game.change_scene = False
             self.gameover.change_scene = False
@@ -51,18 +51,18 @@ class Main:
             self.game.scene_type = None
 
     def events(self):
-        for events in pygame.event.get():
-            if events.type == pygame.QUIT:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 self.loop = False
             if not self.menu.change_scene:
-                self.menu.events(events)
+                self.menu.events(event)
             elif not self.game.change_scene:
-                # não chama mais move_player por evento; movimento é contínuo em draw()
+                # movimento é contínuo em draw(); aqui não precisa de nada
                 pass
             elif not self.winner.change_scene:
-                self.winner.events(events)
+                self.winner.events(event)
             else:
-                self.gameover.events(events)
+                self.gameover.events(event)
 
     def update(self):
         while self.loop:
@@ -72,5 +72,6 @@ class Main:
             pygame.display.update()
 
 
-game = Main(360, 640, "Race for Approval")
-game.update()
+if __name__ == "__main__":
+    game = Main(360, 640, "Race for Approval")
+    game.update()

@@ -1,55 +1,51 @@
-# Dungeons-Study
+# Campus Rush
 
 # Descrição do Projeto
-"Dungeons & Study" é um jogo educacional do gênero RPG desenvolvido em Python utilizando a biblioteca Pygame. O jogador assume o papel de um estudante universitário da cidade de Recife, Pernambuco, enfrentando desafios acadêmicos em diversas disciplinas por meio de quizzes, minigames e batalhas temáticas que simulam provas e obstáculos reais do ambiente universitário.
+Race for Approval é um jogo 2D em pixel art, feito em Python com Pygame, em que um aluno corre pela avenida da faculdade tentando “ganhar aprovação” ao coletar códigos e desviar de obstáculos como carros, PDFs e cobras.​
+O objetivo é sobreviver o máximo possível, mantendo as vidas e acumulando pontos até alcançar a pontuação de vitória.
 
 # Recursos Principais
-Tela inicial com menu de seleção de disciplinas/fases.
+Sistema de cenas com tela inicial, jogo, tela de derrota e tela de vitória, todas com imagens próprias.​
 
-Ambientes temáticos e sprites representativos das disciplinas e da cultura local.
+Fundo rolando continuamente para simular movimento da rua e sensação de corrida infinita.​
 
-Sistema de fases comportando desafios progressivos e chefões que simbolizam provas finais.
-
-Minigames e quizzes interativos para promoção do aprendizado.
-
-Barra de progresso e sistema de pontuação baseado no desempenho do jogador.
-
-Tela final que representa a diplomação do aluno após concluir todas as fases.
+Obstáculos e itens gerados em posições aleatórias, com diferentes velocidades de queda.
 
 # Objetivos Educacionais
-Tornar o aprendizado interativo e engajador.
+Praticar conceitos de programação orientada a objetos em Python (classes, herança e encapsulamento).​
 
-Estimular o raciocínio lógico e aplicação prática dos conteúdos.
+Aplicar lógica de jogos: detecção de colisão, contagem de pontos, sistema de vidas e condições de vitória/derrota.​
 
-Valorizar a vivência acadêmica na universidade local, contextualizando o aprendizado.
+Exercitar o uso da biblioteca Pygame para criação de janelas, sprites, eventos de teclado e game loop.​
 
 # Tecnologias Utilizadas
-Python 3.x
+Linguagem: Python 3.​
 
-Biblioteca Pygame para desenvolvimento gráfico e interação.
+Biblioteca: Pygame (renderização 2D, sprites, eventos e relógio de FPS).​
+
+Assets: sprites e telas em pixel art (personagem, obstáculos, fundo, tela inicial, game over e vitória).​
 
 # Estrutura Básica do Código
-O jogo apresenta uma estrutura modular com:
+main.py: ponto de entrada do jogo; cria a janela, controla o loop principal, troca entre menu, jogo, game over e vitória.​
 
-Tela inicial e menus para navegação.
+menu.py: define as classes de cena Menu, Gameover e Vitoria, responsáveis por desenhar as telas estáticas e reagir a teclas.​
 
-Estrutura de fases organizadas por disciplinas.
+game.py: implementa a classe Game, que gerencia fundo rolando, criação/movimento de obstáculos, HUD, colisões e regras de vitória/derrota.​
 
-Apresentação de desafios em fases por meio de quizzes e minigames.
+obj.py: contém a classe genérica Obj, a classe de texto Texto (HUD) e o Player, com movimento lateral, pontos e vidas.​
 
-Controle da progressão por meio de estruturas condicionais e repetitivas.
+Pasta assets/: imagens do cenário, personagem, obstáculos, HUD e telas de menu, vitória e derrota.​
 
 # Como Executar
-Certifique-se de ter Python 3 instalado.
+Instale o Python 3 em seu computador.​
 
-# Instale a biblioteca Pygame:
-pip install pygame
+Instale o Pygame com: pip install pygame.​
 
-# Clone o repositório:
-git clone <URL_DO_REPOSITÓRIO>
+Baixe/clon e este repositório, garantindo que a pasta assets/ esteja no mesmo nível dos arquivos main.py, game.py, menu.py e obj.py.​
 
-# Execute o arquivo principal do jogo:
-python main.py
+No terminal, dentro da pasta do projeto, execute: python main.py.​
+
+Na tela inicial, pressione qualquer tecla para começar; use as setas esquerda e direita para mover o aluno, colete os ícones de código e desvie dos PDFs, cobras e carros.
 
 # Contribuições
 Contribuições são bem-vindas! Por favor, crie issues para reportar bugs ou sugerir melhorias e envie pull requests para novas funcionalidades ou correções.

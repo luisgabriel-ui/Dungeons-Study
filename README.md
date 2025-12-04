@@ -1,4 +1,4 @@
-# Dungeons-Study
+# Campus Rush
 
 # Descrição do Projeto
 Race for Approval é um jogo 2D em pixel art, feito em Python com Pygame, em que um aluno corre pela avenida da faculdade tentando “ganhar aprovação” ao coletar códigos e desviar de obstáculos como carros, PDFs e cobras.​
